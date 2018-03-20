@@ -1,6 +1,9 @@
 <template>
   <div id="app">
     <public-header :title="title" :hideHome="hideHome" :showTitle="showTitle">1111</public-header>
+    <transition :name="'translate-' + direction">
+      <router-view class="router-view" v-if="!$route.meta.keepAlive"></router-view>
+    </transition>
     <div id="loading">
       <img src="./assets/images/loading.gif" alt="">
     </div>
