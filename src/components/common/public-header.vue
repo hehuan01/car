@@ -20,7 +20,7 @@
   @import "../../assets/scss/scssCalc.scss";
   .public-header{
     width:100%;
-    background:#fff;
+    background:#FBFBFB;
     position: absolute;
     left:0;
     top:0;

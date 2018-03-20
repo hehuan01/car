@@ -16,7 +16,7 @@ export default {
   name: 'App',
   data(){
     return{
-      title:"养车库111",
+      title:"首页推荐",
       hideHome:true,
       showTitle:true,
     }

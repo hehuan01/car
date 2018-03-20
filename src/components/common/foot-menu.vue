@@ -1,7 +1,22 @@
 <template>
   <div class="foot-menu">
     <div class="list-menu">
-      <router-link to="">111</router-link>
+      <router-link to="/" active-class="active">
+        <i class="tab1-icon"></i>
+        <p>精选</p>
+      </router-link>
+      <router-link to="/" active-class="active">
+        <i class="tab2-icon"></i>
+        <p>车库</p>
+      </router-link>
+      <router-link to="/" active-class="active">
+        <i class="tab3-icon"></i>
+        <p>问题</p>
+      </router-link>
+      <router-link to="/" active-class="active">
+        <i class="tab4-icon"></i>
+        <p>我的</p>
+      </router-link>
     </div>
   </div>
 </template>
@@ -29,7 +44,22 @@
 			align-content: center;
 			// height:100%;
       a{
-
+        display: block;
+        font-size: 10rem/$num;
+        color: #999;
+        text-align: center;
+        flex:1;
+        -webkit-flex:1;
+        -moz-flex:1;
+        i{
+          display: inline-block;
+          width: 22rem/$num;
+          height:22rem/$num;
+          background-size: cover;
+        }
+        .tab1-icon{
+          background-image: url(../../assets/images/foot-menu/tab1.png);
+        }
       }
     }
   }
