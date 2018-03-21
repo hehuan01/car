@@ -1,19 +1,22 @@
 <template>
   <div class="foot-menu">
     <div class="list-menu">
-      <router-link to="/" active-class="active">
+      <router-link to="/" active-class="active" exact>
         <i class="tab1-icon"></i>
         <p>精选</p>
       </router-link>
-      <router-link to="/" active-class="active">
+      <router-link to="/order" active-class="active">
         <i class="tab2-icon"></i>
         <p>车库</p>
       </router-link>
-      <router-link to="/" active-class="active">
+      <router-link to="/order">
+        <p class="publish"></p>
+      </router-link>
+      <router-link to="/order" active-class="active">
         <i class="tab3-icon"></i>
         <p>问题</p>
       </router-link>
-      <router-link to="/" active-class="active">
+      <router-link to="/order" active-class="active">
         <i class="tab4-icon"></i>
         <p>我的</p>
       </router-link>
@@ -33,6 +36,7 @@
     font-size:10rem/$num;
     z-index: 1;
     .list-menu{
+      padding-top:10rem/$num;
       display: flex;
       display: box;
       display: flexbox;
@@ -59,6 +63,61 @@
         }
         .tab1-icon{
           background-image: url(../../assets/images/foot-menu/tab1.png);
+        }
+        .tab2-icon{
+          background-image: url(../../assets/images/foot-menu/tab1.png);
+        }
+        .tab3-icon{
+          background-image: url(../../assets/images/foot-menu/tab1.png);
+        }
+        .tab4-icon{
+          background-image: url(../../assets/images/foot-menu/tab1.png);
+        }
+        &.active{
+					p{
+						color:#FF575E;
+					}
+					.tab1-icon{
+						background-image:url(../../assets/images/foot-menu/tab1.png);
+					}
+					.tab2-icon{
+						background-image:url(../../assets/images/foot-menu/tab1.png);
+					}
+					.tab3-icon{
+						background-image:url(../../assets/images/foot-menu/tab1.png);
+					}
+          .tab4-icon{
+						background-image:url(../../assets/images/foot-menu/tab1.png);
+					}
+				}
+        .publish{
+          width:44rem/$num;
+          height:32rem/$num;
+          background: linear-gradient(-135deg, #DDCFA4 0%, #F0E9D1 100%);
+          border-radius: 4rem/$num;
+          margin:0 auto;
+          &:before{
+            position: absolute;
+            top:50%;
+            left:50%;
+            margin-top:-16rem/$num/2;
+            margin-left:-2rem/$num/2;
+            content:'';
+            width:2rem/$num;
+            height:16rem/$num;
+            background:#333;
+          }
+          &:after{
+            position: absolute;
+            left:50%;
+            top:50%;
+            margin-left:-16rem/$num/2;
+            margin-top:-2rem/$num/2;
+            content:'';
+            width:16rem/$num;
+            height:2rem/$num;
+            background:#333;
+          }
         }
       }
     }
