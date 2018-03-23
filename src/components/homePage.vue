@@ -1,6 +1,6 @@
 <template>
   <div class="homePage">
-    <router-view>111</router-view>
+    <router-view></router-view>
     <foot-menu></foot-menu>
   </div>
 </template>

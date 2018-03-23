@@ -1,7 +1,7 @@
 <template>
   <div class="public-header" v-if="showTitle">
     <div class="header">
-      <div class="left-arrow"></div>
+      <div class="left-arrow" v-show="hideArrow"></div>
       <div class="jump-home" v-show="hideHome">
         <img src="../../assets/images/home.png">
       </div>
@@ -12,7 +12,7 @@
 
 <script>
   export default {
-    props: ['title','hideHome','showTitle']
+    props: ['title','hideArrow','hideHome','showTitle']
   }
 </script>
 

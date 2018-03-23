@@ -36,7 +36,7 @@
     font-size:10rem/$num;
     z-index: 1;
     .list-menu{
-      padding-top:10rem/$num;
+      padding-top:9rem/$num;
       display: flex;
       display: box;
       display: flexbox;
@@ -57,37 +57,38 @@
         -moz-flex:1;
         i{
           display: inline-block;
-          width: 22rem/$num;
-          height:22rem/$num;
+          width: 20rem/$num;
+          height:20rem/$num;
           background-size: cover;
+          margin-bottom:3rem/$num;
         }
         .tab1-icon{
           background-image: url(../../assets/images/foot-menu/tab1.png);
         }
         .tab2-icon{
-          background-image: url(../../assets/images/foot-menu/tab1.png);
+          background-image: url(../../assets/images/foot-menu/tab2.png);
         }
         .tab3-icon{
-          background-image: url(../../assets/images/foot-menu/tab1.png);
+          background-image: url(../../assets/images/foot-menu/tab3.png);
         }
         .tab4-icon{
-          background-image: url(../../assets/images/foot-menu/tab1.png);
+          background-image: url(../../assets/images/foot-menu/tab4.png);
         }
         &.active{
 					p{
-						color:#FF575E;
+						color:#DDCFA4;
 					}
 					.tab1-icon{
-						background-image:url(../../assets/images/foot-menu/tab1.png);
+						background-image:url(../../assets/images/foot-menu/tab1_1.png);
 					}
 					.tab2-icon{
-						background-image:url(../../assets/images/foot-menu/tab1.png);
+						background-image:url(../../assets/images/foot-menu/tab2_2.png);
 					}
 					.tab3-icon{
-						background-image:url(../../assets/images/foot-menu/tab1.png);
+						background-image:url(../../assets/images/foot-menu/tab3_3.png);
 					}
           .tab4-icon{
-						background-image:url(../../assets/images/foot-menu/tab1.png);
+						background-image:url(../../assets/images/foot-menu/tab4_4.png);
 					}
 				}
         .publish{
