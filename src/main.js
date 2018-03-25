@@ -20,6 +20,13 @@ import {
 Vue.component(Swipe.name, Swipe);
 Vue.component(SwipeItem.name, SwipeItem);
 
+import {
+  Swiper,
+  SwiperItem
+} from 'vux';
+Vue.use(Swiper);
+Vue.use(SwiperItem);
+
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
