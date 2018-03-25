@@ -15,7 +15,6 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
-    "mint-ui": "^2.2.13",
     "vue": "^2.5.2",
     "vue-resource": "^1.5.0",
     "vue-router": "^3.0.1"
@@ -55,6 +54,7 @@
     "html-webpack-plugin": "^2.30.1",
     "jest": "^22.0.4",
     "jest-serializer-vue": "^0.3.0",
+    "mint-ui": "^2.2.13",
     "nightwatch": "^0.9.12",
     "node-notifier": "^5.1.2",
     "node-sass": "^4.7.2",

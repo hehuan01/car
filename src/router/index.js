@@ -3,6 +3,11 @@ import Router from 'vue-router'
 import homePage from '@/components/homePage'
 import home from '@/components/home/home'
 
+import subPage from '@/components/subPage'
+import contentDetail from '@/components/content/contentDetail'
+
+
+
 Vue.use(Router)
 
 export default new Router({
@@ -19,6 +24,20 @@ export default new Router({
           name:'home',
           component:home
 
+        }
+      ]
+    },
+    {
+      path:'/subPage',
+      component:subPage,
+      children:[
+        {
+          path:'contentDetail',
+          name:'contentDetail',
+          component:contentDetail,
+          meta:{
+            keepAlive:true
+          }
         }
       ]
     }

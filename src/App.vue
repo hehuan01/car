@@ -33,6 +33,16 @@ export default {
     })
     console.timeEnd('test');;
   },
+  watch: {  //watch $route监听路由变化，改变头部title
+    '$route' (to, from) {
+      //内容详情页不需要title
+      if(to.path == "/subPage/contentDetail"){
+        this.showTitle = false;
+      }else{
+        this.showTitle = true;
+      }
+    }
+  },
   components:{publicHeader},
 }
 </script>
@@ -50,6 +60,7 @@ export default {
     position: absolute;
     width: 100%;
     padding-top:44rem/$num;
+    padding-bottom: 49rem/$num;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -o-box-sizing: border-box;
