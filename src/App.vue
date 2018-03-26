@@ -72,5 +72,27 @@ export default {
     -webkit-overflow-scrolling: touch;
     transition: all .8s cubic-bezier(.55,0,.1,1);
   }
+  .ubox{
+    display: box;
+    display: -webkit-box;
+    display: flex;
+    display: -webkit-flex;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    align-items: center;
+    justify-content: space-between;
+    -webkit-justify-content:space-between;
+  }
+  .foot-menu{
+    width:100%;
+    height:49rem/$num;
+    background:#333;
+    position: absolute;
+    bottom:0;
+    left:0;
+    font-size:10rem/$num;
+    z-index: 1;
+  }
 }
 </style>

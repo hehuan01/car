@@ -24,8 +24,8 @@ import {
   Swiper,
   SwiperItem
 } from 'vux';
-Vue.use(Swiper);
-Vue.use(SwiperItem);
+Vue.component(Swiper.name, Swiper);
+Vue.component(SwiperItem.name, SwiperItem);
 
 Vue.config.productionTip = false
 
