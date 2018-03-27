@@ -265,7 +265,7 @@
         }
       }
       .about{
-        padding:25.5rem/$num 0 20rem/$num 0;
+        padding:25.5rem/$num 0 24rem/$num 20rem/$num;
       }
     }
     .foot-menu{
