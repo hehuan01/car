@@ -30,14 +30,14 @@
           <div class="noticePos">
             <div class="lft-icon"><img src="../../assets/images/home/headline.png"></div>
             <div class="rgt-content">
-              <mt-swipe :auto="4000" :show-indicators="false" direction="vertical">
-                <mt-swipe-item>
+              <swiper height="17px" auto direction="vertical" :show-dots="false">
+                <swiper-item>
                   全新BMW 5系瞩目上市 前瞻智能科技, 11111运动豪华商务运动豪华商务1111…
-                </mt-swipe-item>
-                <mt-swipe-item>
+                </swiper-item>
+                <swiper-item>
                   全新BMW 5系瞩目上市 前瞻智能科技, 2222运动豪华商务运动豪华商务1111…
-                </mt-swipe-item>
-              </mt-swipe>
+                </swiper-item>
+              </swiper>
             </div>
           </div>
         </div>
@@ -211,11 +211,13 @@
             height:17rem/$num;
             line-height: 17rem/$num;
             margin-left:12rem/$num;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            display: -webkit-box;
-            -webkit-line-clamp: 1;
-            -webkit-box-orient: vertical;
+            .vux-swiper-item{
+              overflow: hidden;
+              text-overflow: ellipsis;
+              display: -webkit-box;
+              -webkit-line-clamp: 1;
+              -webkit-box-orient: vertical;
+            }
           }
         }
       }

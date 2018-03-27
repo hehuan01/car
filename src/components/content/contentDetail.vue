@@ -61,21 +61,25 @@
         <div class="comment-title ubox">
           <h2><span></span>相关帖子</h2>
         </div>
+        <div class="about">
+          <list></list>
+        </div>
       </div>
     </div>
     <div class="foot-menu">
       <div class="list-menu">
-        <div class="menu-item"><i></i>收藏</div>
+        <div class="menu-item"><i class="cont_detail_icon1 cont_detail_icon11"></i>收藏</div>
         <div class="line"></div>
-        <div class="menu-item"><i></i>赞</div>
+        <div class="menu-item"><i class="cont_detail_icon2"></i>赞</div>
         <div class="line"></div>
-        <div class="menu-item"><i></i>评论</div>
+        <div class="menu-item"><i class="cont_detail_icon3"></i>评论</div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+  import list from '../common/list'
   export default {
     data() {
       return {
@@ -86,6 +90,9 @@
       onSwiperItemIndexChange(index){
         this.curIndex = index+1;
       }
+    },
+    components:{
+      list
     }
   }
 </script>
@@ -257,6 +264,9 @@
           text-align: center;
         }
       }
+      .about{
+        padding:25.5rem/$num 0 20rem/$num 0;
+      }
     }
     .foot-menu{
       .list-menu{
@@ -278,13 +288,27 @@
           text-align: center;
           i{
             display: inline-block;
-            width:20rem/$num;
-            height:20rem/$num;
-            background-image: url(../../assets/images/home/love.png);
+            width:18rem/$num;
+            height:18rem/$num;
             background-size: cover;
             background-repeat: no-repeat;
             vertical-align: middle;
             margin-right:6rem/$num;
+          }
+          .cont_detail_icon1{
+            background-image: url(../../assets/images/content-detail/collect_no.png);
+          }
+          .cont_detail_icon2{
+            background-image: url(../../assets/images/content-detail/like_no.png);
+          }
+          .cont_detail_icon3{
+            background-image: url(../../assets/images/content-detail/comment.png);
+          }
+          .cont_detail_icon11{
+            background-image: url(../../assets/images/content-detail/collect.png);
+          }
+          .cont_detail_icon22{
+            background-image: url(../../assets/images/content-detail/like.png);
           }
         }
         .line{
