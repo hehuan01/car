@@ -2,10 +2,11 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import homePage from '@/components/homePage'
 import home from '@/components/home/home'
+import goodsList from '@/components/goods/goodsList'
 
 import subPage from '@/components/subPage'
 import contentDetail from '@/components/content/contentDetail'
-
+import allComments from '@/components/content/allComments'
 
 
 Vue.use(Router)
@@ -22,8 +23,20 @@ export default new Router({
         {
           path:'',
           name:'home',
-          component:home
-
+          component:home,
+          meta:{
+            title:"首页推荐",
+            keepAlive:true
+          }
+        },
+        {
+          path:'goodsList',
+          name:'goodsList',
+          component:goodsList,
+          meta:{
+            title:"车库",
+            keepAlive: true
+          }
         }
       ]
     },
@@ -36,6 +49,15 @@ export default new Router({
           name:'contentDetail',
           component:contentDetail,
           meta:{
+            keepAlive:true
+          }
+        },
+        {
+          path:'allComments',
+          name:'allComments',
+          component:allComments,
+          meta:{
+            title:'所有评论',
             keepAlive:true
           }
         }

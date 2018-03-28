@@ -5,7 +5,7 @@
         <i class="tab1-icon"></i>
         <p>精选</p>
       </router-link>
-      <router-link to="/order" active-class="active">
+      <router-link to="/goodsList" active-class="active">
         <i class="tab2-icon"></i>
         <p>车库</p>
       </router-link>

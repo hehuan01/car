@@ -35,7 +35,9 @@
       <div class="comment">
         <div class="comment-title ubox">
           <h2><span></span>评论</h2>
-          <p>共2750条评论</p>
+          <router-link :to="{path:'/subPage/allComments', params: {} }">
+            <p>共2750条评论</p>
+          </router-link>
         </div>
         <div class="comment-list">
           <ul>

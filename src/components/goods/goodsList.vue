@@ -1,0 +1,154 @@
+<template>
+  <div class="goods-list sub-content">
+    <div class="goods-filter ubox">
+      <div class="filter-item">品牌</div>
+      <div class="filter-line"></div>
+      <div class="filter-item">高级筛选</div>
+    </div>
+    <div class="recommend">
+      <div class="title ubox">
+        <p class="title-name">为您推荐</p>
+        <p class="refresh">换一批</p>
+      </div>
+      <div class="common-content">
+        <div class="sub-list">
+          <router-link :to="{path: '', params: {} }">
+            <div class="grap-text">
+              <img src="../../assets/images/home/list1.png"/>
+              <p class="good-name">宝马7系 740L Drive豪华配置</p>
+              <p class="real-prize">¥110万</p>
+              <p class="fs-price">4S店价格：150万</p>
+            </div>
+          </router-link>
+          <router-link :to="{path: '', params: {} }">
+            <div class="grap-text">
+              <img src="../../assets/images/home/list2.png"/>
+              <p class="good-name">宝马7系 740L Drive豪华配置</p>
+              <p class="real-prize">¥110万</p>
+              <p class="fs-price">4S店价格：150万</p>
+            </div>
+          </router-link>
+        </div>
+      </div>
+    </div>
+    <div class="middle-filter ubox">
+      <div class="middle-filter-item"><i class="small-icon lft-icon"></i>品牌专区</div>
+      <div class="middle-filter-item"><i class="small-icon rgt-icon"></i>立即定制</div>
+    </div>
+    <div class="best-goods">
+      <div class="title">精选商品</div>
+    </div>
+  </div>
+</template>
+
+<script>
+
+</script>
+
+<style lang="scss">
+  @import "../../assets/scss/scssCalc";
+  .goods-list{
+    .goods-filter{
+      background: #fff;
+      height:40rem/$num;
+      line-height: 40rem/$num;
+      border-bottom: 1px solid #eee;
+      .filter-item{
+        width:50%;
+        font-size:14rem/$num;
+        color: #333;
+        text-align: center;
+        &:after{
+          content: '';
+          display: inline-block;
+          width: 0;
+          height: 0;
+          border-left: 4rem/$num solid transparent;
+          border-right: 4rem/$num solid transparent;
+          border-top: 5rem/$num solid #DCDCDC;
+          vertical-align: middle;
+          margin-left: 5rem/$num;
+        }
+      }
+      .filter-line{
+        width:1rem/$num;
+        height:20rem/$num;
+        background: #eee;
+      }
+    }
+    .recommend{
+      background:#fff;
+      .title{
+        padding:25.5rem/$num 20rem/$num 10rem/$num;
+        .title-name{
+          font-size:20rem/$num;
+          color: #333;
+          font-weight: bold;
+        }
+        .refresh{
+          font-size: 14rem/$num;
+          color: #B9A468;
+        }
+      }
+      .common-content{
+        padding:20rem/$num 0 35rem/$num 20rem/$num;
+        .sub-list{
+          white-space: nowrap;
+          overflow-y:hidden;
+          overflow-x: auto;
+          -webkit-overflow-scrolling: touch;
+          &::-webkit-scrollbar {
+              display: none;
+          }
+        }
+        a{
+          vertical-align: top;
+          display:inline-block;
+          .grap-text{
+            margin-right: 12rem/$num;
+            display: inline-block;
+            img{
+              width:210rem/$num;
+              height:130rem/$num;
+              border-radius: 6rem/$num;
+              vertical-align: top;
+            }
+            .good-name{
+              padding-top:11.3rem/$num;
+              font-size:14rem/$num;
+              color: #333;
+              text-align: center;
+            }
+            .real-prize{
+              padding:12rem/$num 0;
+              font-size: 14rem/$num;
+              color: #B9A468;
+              text-align: center;
+            }
+            .fs-price{
+              font-size:11rem/$num;
+              color: #DCDCDC;
+              text-decoration: line-through;
+              text-align: center;
+            }
+          }
+        }
+      }
+    }
+    .middle-filter{
+      margin:10rem/$num 0;
+      background:#fff;
+      height:80rem/$num;
+      line-height: 80rem/$num;
+      .middle-filter-item{
+        width:50%;
+        font-size:16rem/$num;
+        color: #333;
+        text-align: center;
+      }
+    }
+    .best-goods{
+      background:#fff;
+    }
+  }
+</style>

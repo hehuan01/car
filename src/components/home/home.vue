@@ -46,7 +46,7 @@
           <div class="title">优选体验</div>
           <div class="content">
             <div class="sub-list">
-              <router-link :to="{ path: 'subPage/contentDetail', params: {} }">
+              <router-link :to="{ path: '/subPage/contentDetail', params: {} }">
                 <div class="grap-text">
                   <img src="../../assets/images/home/list1.png"/>
                   <p>试驾斯柯达柯珞克1.4T</p>

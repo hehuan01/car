@@ -20,7 +20,7 @@ export default {
   data(){
     return{
       title:"首页推荐",
-      hideArrow:false,
+      hideArrow:true,
       hideHome:false,
       showTitle:true,
       direction:'forward'
@@ -41,9 +41,20 @@ export default {
       }else{
         this.showTitle = true;
       }
+
+      this.title = to.meta.title;
+
+      // 首页不显示返回箭头
+      if(to.path == '/'){
+        this.hideArrow = false;
+      }else{
+        this.hideArrow = true;
+      }
     }
   },
-  components:{publicHeader},
+  components:{
+    publicHeader
+  },
 }
 </script>
 

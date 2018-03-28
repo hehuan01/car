@@ -6,7 +6,6 @@ import router from './router'
 import "./assets/js/initRem"
 import "./assets/scss/reset.scss"
 import "./assets/scss/mint-ui-style.scss"
-import "./assets/scss/scssCalc.scss"
 
 // ajax请求
 import httpService from './config/httpService'
