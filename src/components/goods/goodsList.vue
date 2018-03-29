@@ -14,7 +14,7 @@
         <div class="sub-list">
           <router-link :to="{path: '', params: {} }">
             <div class="grap-text">
-              <img src="../../assets/images/home/list1.png"/>
+              <img src="../../assets/images/goods/recommend1.png"/>
               <p class="good-name">宝马7系 740L Drive豪华配置</p>
               <p class="real-prize">¥110万</p>
               <p class="fs-price">4S店价格：150万</p>
@@ -22,7 +22,7 @@
           </router-link>
           <router-link :to="{path: '', params: {} }">
             <div class="grap-text">
-              <img src="../../assets/images/home/list2.png"/>
+              <img src="../../assets/images/goods/recommend1.png"/>
               <p class="good-name">宝马7系 740L Drive豪华配置</p>
               <p class="real-prize">¥110万</p>
               <p class="fs-price">4S店价格：150万</p>
@@ -40,7 +40,28 @@
       <div class="common-goods-list">
         <div class="goods-list-item">
           <router-link :to="{path: '', params: {} }">
-
+            <img src="../../assets/images/goods/good1.png"/>
+            <p class="good-name">保时捷 Panamera 4 2014 </p>
+            <p class="good-price">¥ 84.5万<span>¥ 84.5万</span></p>
+            <p class="others">
+              <span>3.0T</span>
+              <span>多色可选</span>
+              <span>可定制</span>
+              <span>现货</span>
+            </p>
+          </router-link>
+        </div>
+        <div class="goods-list-item">
+          <router-link :to="{path: '', params: {} }">
+            <img src="../../assets/images/goods/good1.png"/>
+            <p class="good-name">保时捷 Panamera 4 2014 </p>
+            <p class="good-price">¥ 84.5万<span>¥ 84.5万</span></p>
+            <p class="others">
+              <span>3.0T</span>
+              <span>多色可选</span>
+              <span>可定制</span>
+              <span>现货</span>
+            </p>
           </router-link>
         </div>
       </div>
@@ -95,10 +116,22 @@
         .refresh{
           font-size: 14rem/$num;
           color: #B9A468;
+          &:before{
+            content:'';
+            display: inline-block;
+            background-image: url(../../assets/images/goods/refresh.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            width:15rem/$num;
+            height:15rem/$num;
+            margin-right: 5rem/$num;
+            margin-bottom: 2rem/$num;
+            vertical-align: middle;
+          }
         }
       }
       .common-content{
-        padding:20rem/$num 0 35rem/$num 20rem/$num;
+        padding:20rem/$num 0 35rem/$num 35rem/$num;
         .sub-list{
           white-space: nowrap;
           overflow-y:hidden;
@@ -116,7 +149,7 @@
             display: inline-block;
             img{
               width:210rem/$num;
-              height:130rem/$num;
+              height:120rem/$num;
               border-radius: 6rem/$num;
               vertical-align: top;
             }
@@ -152,6 +185,22 @@
         font-size:16rem/$num;
         color: #333;
         text-align: center;
+        .small-icon{
+          display: inline-block;
+          width:30rem/$num;
+          height:30rem/$num;
+          background-repeat: no-repeat;
+          background-size: cover;
+          margin-bottom: 5rem/$num;
+          margin-right: 14rem/$num;
+          vertical-align: middle;
+        }
+        .lft-icon{
+          background-image: url(../../assets/images/goods/filter1.png);
+        }
+        .rgt-icon{
+          background-image: url(../../assets/images/goods/filter2.png);
+        }
       }
     }
     .best-goods{
@@ -163,8 +212,41 @@
         font-weight: bold;
       }
       .common-goods-list{
+        padding-bottom: 5rem/$num;
         .goods-list-item{
-          padding:20rem/$num;
+          padding:20rem/$num 20rem/$num 0;
+          text-align: center;
+          img{
+            width:335rem/$num;
+            height:170rem/$num;
+          }
+          .good-name{
+            font-size: 14rem/$num;
+            padding:5rem/$num 0 8rem/$num;
+            color: #000;
+          }
+          .good-price{
+            font-size: 17rem/$num;
+            color: #B9A468;
+            span{
+              font-size: 11rem/$num;
+              color: #DCDCDC;
+              text-decoration: line-through;
+              margin:0 13rem/$num;
+            }
+          }
+          .others{
+            padding:8rem/$num 0 10rem/$num;
+            span{
+              padding:0 4rem/$num;
+              margin-right:10rem/$num;
+              background: #F7F7F7;
+              border-radius: 3rem/$num;
+              height:16rem/$num;
+              font-size: 10rem/$num;
+              color: #CDBC8A;
+            }
+          }
         }
       }
     }
