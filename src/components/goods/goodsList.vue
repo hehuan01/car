@@ -37,6 +37,13 @@
     </div>
     <div class="best-goods">
       <div class="title">精选商品</div>
+      <div class="common-goods-list">
+        <div class="goods-list-item">
+          <router-link :to="{path: '', params: {} }">
+
+          </router-link>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -149,6 +156,17 @@
     }
     .best-goods{
       background:#fff;
+      .title{
+        padding:30rem/$num 20rem/$num 0;
+        font-size:20rem/$num;
+        color: #333;
+        font-weight: bold;
+      }
+      .common-goods-list{
+        .goods-list-item{
+          padding:20rem/$num;
+        }
+      }
     }
   }
 </style>
