@@ -1,7 +1,8 @@
 <template>
+  <div>
   <div class="goods-list sub-content">
     <div class="goods-filter ubox">
-      <div class="filter-item">品牌</div>
+      <div class="filter-item filter-item-active">品牌</div>
       <div class="filter-line"></div>
       <div class="filter-item">高级筛选</div>
     </div>
@@ -67,9 +68,22 @@
       </div>
     </div>
   </div>
+  <public-select :goodsListClass="true"></public-select>
+</div>
 </template>
 
 <script>
+import publicSelect from '../common/public-select'
+export default {
+  data() {
+    return {
+
+    }
+  },
+  components: {
+    publicSelect
+  }
+}
 
 </script>
 
@@ -96,6 +110,12 @@
           border-top: 5rem/$num solid #DCDCDC;
           vertical-align: middle;
           margin-left: 5rem/$num;
+        }
+      }
+      .filter-item-active{
+        font-weight: bolder;
+        &:after{
+          border-top-color: #000;
         }
       }
       .filter-line{
@@ -250,5 +270,8 @@
         }
       }
     }
+  }
+  .brand-select{
+    top:84rem/$num;
   }
 </style>
