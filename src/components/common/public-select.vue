@@ -22,7 +22,7 @@
         <p><span>阿斯顿马丁</span></p>
         <p><span>阿斯顿马丁</span></p>
       </div>
-      <div class="select-item select-item2-bg">
+      <!-- <div class="select-item select-item2-bg">
         <p>不限</p>
         <p><span>BMW3系</span></p>
         <p><span class="active">BMW3系</span></p>
@@ -30,8 +30,8 @@
         <p><span>BMW3系</span></p>
         <p><span>BMW3系</span></p>
         <p><span>BMW3系</span></p>
-      </div>
-      <div class="select-item select-item3-bg">
+      </div> -->
+      <!-- <div class="select-item select-item3-bg">
         <p>不限</p>
         <p><span>BMW3系</span></p>
         <p><span class="active">BMW3系</span></p>
@@ -39,7 +39,7 @@
         <p><span>BMW3系</span></p>
         <p><span>BMW3系</span></p>
         <p><span>BMW3系</span></p>
-      </div>
+      </div> -->
     </div>
     <div class="btns">
       <button class="cancel-btn">重置</button><button class="true-btn">确定</button>
@@ -131,6 +131,6 @@ export default {
     }
   }
   .top{
-    top:84rem/$num;
+    top:85rem/$num;
   }
 </style>
