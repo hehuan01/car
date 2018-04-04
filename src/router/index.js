@@ -8,6 +8,7 @@ import subPage from '@/components/subPage'
 import contentDetail from '@/components/content/contentDetail'
 import allComments from '@/components/content/allComments'
 import result from '@/components/select/result'
+import goodsDetail from '@/components/goods/goodsDetail'
 
 
 Vue.use(Router)
@@ -68,6 +69,15 @@ export default new Router({
           component:result,
           meta:{
             title:'立即定制',
+            keepAlive:true
+          }
+        },
+        {
+          path:'goodsDetail',
+          name:'goodsDetail',
+          component:goodsDetail,
+          meta:{
+            title:'保时捷',
             keepAlive:true
           }
         }
