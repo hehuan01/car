@@ -11,11 +11,22 @@
       </div>
     </div>
     <div class="about-goods">
+      <div class="tabs ubox">
+        <div class="sub-tab active"><span>产品系列</span></div>
+        <div class="sub-tab">体验报告</div>
+      </div>
+      <div class="goods-intro">
+        <div class="goods-list">
+          <p class="title"><i></i><i></i><span>718 Cayman 车型</span></p>
+          <div></div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+
 </script>
 
 <style lang="scss">
@@ -63,6 +74,56 @@
     }
     .about-goods{
       margin-top:10rem/$num;
+      background:#fff;
+      .tabs{
+        height: 44rem/$num;
+        line-height: 44rem/$num;
+        border-bottom: 1px solid #eee;
+        .sub-tab{
+          width:50%;
+          font-size: 14rem/$num;
+          color: #666;
+          text-align: center;
+        }
+        .active{
+          color: #B9A468;
+          span{
+            display: inline-block;
+            height:44rem/$num;
+            border-bottom: 2px solid #B9A468;
+            box-sizing:border-box;
+            -webkit-box-sizing:border-box;
+          }
+        }
+      }
+      .goods-intro{
+        padding:0 20rem/$num;
+        .goods-list{
+          padding:5.5rem/$num 0 30rem/$num;
+          border-bottom: 1px solid #eee;
+          .title{
+            padding:20rem/$num 0;
+            font-size: 14rem/$num;
+            color: #333;
+            i{
+              content:'';
+              display: inline-block;
+              width:5rem/$num;
+              height:5rem/$num;
+              border-top: 1px solid #B9A468;
+              border-right: 1px solid #B9A468;
+              transform: rotate(45deg);
+              -webkit-transform: rotate(45deg);
+              vertical-align: middle;
+            }
+            span{
+              display: inline-block;
+              vertical-align: middle;
+              margin-left: 8.8rem/$num;
+            }
+          }
+        }
+      }
     }
   }
 </style>

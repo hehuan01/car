@@ -92,8 +92,8 @@ export default {
     -webkit-align-items: center;
     -webkit-box-align: center;
     align-items: center;
-    justify-content: space-around;
-    -webkit-justify-content:space-around;
+    justify-content: space-between;
+    -webkit-justify-content:space-between;
   }
   .foot-menu{
     width:100%;
