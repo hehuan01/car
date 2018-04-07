@@ -1,32 +1,56 @@
 <template>
-  <div class="goods-detail sub-content">
-    <div class="branch-banner">
-      <img src="../../assets/images/goods/branch-banner.png"/>
-    </div>
-    <div class="branch-info">
-      <div class="ubox">
-        <p><img src="../../assets/images/goods/branch-logo.png"/></p>
-        <p><span>来自<br><i>中国</i></span><span>关注<br><i>12300</i></span></p>
-        <p class="rgt-btn">关注</p>
+  <div class="goods-detail">
+    <div class="sub-content">
+      <div class="branch-banner">
+        <img src="../../assets/images/goods/branch-banner.png"/>
       </div>
-    </div>
-    <div class="about-goods">
-      <div class="tabs ubox">
-        <div class="sub-tab active"><span>产品系列</span></div>
-        <div class="sub-tab">体验报告</div>
+      <div class="branch-info">
+        <div class="ubox">
+          <p><img src="../../assets/images/goods/branch-logo.png"/></p>
+          <p><span>来自<br><i>中国</i></span><span>关注<br><i>12300</i></span></p>
+          <p class="rgt-btn">关注</p>
+        </div>
       </div>
-      <div class="goods-intro">
-        <div class="goods-list">
-          <p class="title"><i></i><i></i><span>718 Cayman 车型</span></p>
-          <div></div>
+      <div class="about-goods">
+        <div class="tabs ubox">
+          <div class="sub-tab active"><span>产品系列</span></div>
+          <div class="sub-tab">体验报告</div>
+        </div>
+        <div class="goods-show">
+          <div class="goods-intro" style="display:block">
+            <div class="goods-list">
+              <p class="title"><i></i><i></i><span>718 Cayman 车型</span></p>
+              <div class="content">
+                <good-list></good-list>
+              </div>
+            </div>
+          </div>
+          <!-- <div class="feeling-report">
+            <list></list>
+          </div> -->
         </div>
       </div>
     </div>
+    <btn :text="text"></btn>
   </div>
 </template>
 
 <script>
-
+import goodList from "../common/good-list"
+import btn from "../common/btn"
+import list from "../common/list"
+export default {
+  data() {
+    return {
+      text:'联系客服'
+    }
+  },
+  components:{
+    goodList,
+    btn,
+    list
+  }
+}
 </script>
 
 <style lang="scss">
@@ -74,6 +98,7 @@
     }
     .about-goods{
       margin-top:10rem/$num;
+      padding-bottom: 32rem/$num;
       background:#fff;
       .tabs{
         height: 44rem/$num;
@@ -122,7 +147,13 @@
               margin-left: 8.8rem/$num;
             }
           }
+          .content{
+            margin-right: -20rem/$num;
+          }
         }
+      }
+      .feeling-report{
+        padding:26rem/$num 0 0 20rem/$num;
       }
     }
   }

@@ -76,7 +76,7 @@
     .others{
       padding:8rem/$num 0 10rem/$num;
       span{
-        padding:0 4rem/$num;
+        padding:0 2rem/$num;
         margin-right:10rem/$num;
         background: #F7F7F7;
         border-radius: 3rem/$num;
