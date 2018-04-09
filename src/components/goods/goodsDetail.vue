@@ -25,9 +25,9 @@
               </div>
             </div>
           </div>
-          <!-- <div class="feeling-report">
+          <div class="feeling-report" style="display:none">
             <list></list>
-          </div> -->
+          </div>
         </div>
       </div>
     </div>

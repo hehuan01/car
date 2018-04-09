@@ -42,12 +42,14 @@
       </div>
     </div>
   <!-- <public-select :goodsListClass="true"></public-select> -->
+    <high-select :goodsListClass="true"></high-select>
   </div>
 </template>
 
 <script>
 import publicSelect from '../common/public-select'
 import customGood from '../common/custom-good'
+import highSelect from '../common/high-select'
 export default {
   data() {
     return {
@@ -56,7 +58,8 @@ export default {
   },
   components: {
     publicSelect,
-    customGood
+    customGood,
+    highSelect
   }
 }
 

@@ -36,7 +36,7 @@
 }
 a{
   vertical-align: top;
-  display:inline-block;
+  // display:inline-block;
   .grap-text{
     margin-right: 12rem/$num;
     display: inline-block;

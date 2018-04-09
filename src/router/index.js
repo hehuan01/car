@@ -9,6 +9,7 @@ import contentDetail from '@/components/content/contentDetail'
 import allComments from '@/components/content/allComments'
 import result from '@/components/select/result'
 import goodsDetail from '@/components/goods/goodsDetail'
+import goodsHome from '@/components/goods/goodsHome'
 
 
 Vue.use(Router)
@@ -78,6 +79,15 @@ export default new Router({
           component:goodsDetail,
           meta:{
             title:'保时捷',
+            keepAlive:true
+          }
+        },
+        {
+          path:'goodsHome',
+          name:'goodsHome',
+          component:goodsHome,
+          meta:{
+            title:'品牌专区',
             keepAlive:true
           }
         }
