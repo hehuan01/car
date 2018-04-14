@@ -3,6 +3,8 @@ import Router from 'vue-router'
 import homePage from '@/components/homePage'
 import home from '@/components/home/home'
 import goodsList from '@/components/goods/goodsList'
+import help from '@/components/help/help'
+import my from '@/components/My/my'
 
 import subPage from '@/components/subPage'
 import contentDetail from '@/components/content/contentDetail'
@@ -10,6 +12,8 @@ import allComments from '@/components/content/allComments'
 import result from '@/components/select/result'
 import goodsDetail from '@/components/goods/goodsDetail'
 import goodsHome from '@/components/goods/goodsHome'
+import search from '@/components/home/search'
+import helpRule from '@/components/help/rule'
 
 
 Vue.use(Router)
@@ -40,6 +44,22 @@ export default new Router({
             title:"车库",
             keepAlive: true
           }
+        },
+        {
+          path:'help',
+          name:'help',
+          component:help,
+          meta:{
+            title:"问题"
+          }
+        },
+        {
+          path:'my',
+          name:'my',
+          component:my,
+          meta:{
+            title:""
+          }
         }
       ]
     },
@@ -47,6 +67,14 @@ export default new Router({
       path:'/subPage',
       component:subPage,
       children:[
+        {
+          path:'search',
+          name:'search',
+          component:search,
+          meta:{
+            keepAlive: true
+          }
+        },
         {
           path:'contentDetail',
           name:'contentDetail',
@@ -88,6 +116,15 @@ export default new Router({
           component:goodsHome,
           meta:{
             title:'品牌专区',
+            keepAlive:true
+          }
+        },
+        {
+          path:'helpRule',
+          name:'helpRule',
+          component:helpRule,
+          meta:{
+            title:'车源',
             keepAlive:true
           }
         }

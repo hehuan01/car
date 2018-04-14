@@ -36,7 +36,7 @@ export default {
   watch: {  //watch $route监听路由变化，改变头部title
     '$route' (to, from) {
       //内容详情页不需要title
-      if(to.path == "/subPage/contentDetail"){
+      if(to.path == "/subPage/contentDetail" || to.path == "/subPage/search"){
         this.showTitle = false;
       }else{
         this.showTitle = true;
@@ -61,6 +61,7 @@ export default {
 <style lang="scss">
 @import "./assets/scss/scssCalc.scss";
 #app {
+  position: relative;
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -69,7 +70,7 @@ export default {
   width: 100%;
   .sub-content{
     position: absolute;
-    width: 100%;
+    width:100%;
     padding-top:44rem/$num;
     padding-bottom: 49rem/$num;
     -moz-box-sizing: border-box;

@@ -6,6 +6,10 @@
         <img src="../../assets/images/home.png">
       </div>
       <p>{{title}}</p>
+      <!-- <router-link to="/subPage/search" class="search">
+        <img src="../../assets/images/home/search.png" alt="">
+      </router-link> -->
+      <div class="client-service"><span>客服</span></div>
     </div>
   </div>
 </template>
@@ -65,6 +69,38 @@
         width:100%;
         z-index: -1;
         font-size:17rem/$num;
+      }
+      .search{
+        position:fixed;
+        top:4rem/$num;
+        right:20rem/$num;
+        font-size: 15rem/$num;
+        color: #FF575E;
+        z-index:10;
+        img{
+          width:16rem/$num;
+          height:16rem/$num;
+        }
+      }
+      .client-service{
+        position: fixed;
+        top:0;
+        right: 19rem/$num;
+        font-size: 14rem/$num;
+        color: #B9A468;
+        &:before{
+          content:'';
+          display: inline-block;
+          width:18rem/$num;
+          height:18rem/$num;
+          background-image: url(../../assets/images/help/tel-icon.png);
+          background-repeat: no-repeat;
+          background-size: cover;
+          vertical-align: middle;
+        }
+        span{
+          vertical-align: middle;
+        }
       }
     }
   }

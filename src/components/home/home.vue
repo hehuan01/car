@@ -208,8 +208,8 @@
             font-size:12rem/$num;
             color: #333;
             width:100%;
-            height:17rem/$num;
-            line-height: 17rem/$num;
+            height:17px;
+            line-height: 17px;
             margin-left:12rem/$num;
             .vux-swiper-item{
               overflow: hidden;
