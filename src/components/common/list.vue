@@ -34,6 +34,7 @@
   @import "../../assets/scss/scssCalc";
   .common-list{
     .content{
+      padding-bottom: 25rem/$num;
       .sub-list{
         white-space: nowrap;
         overflow-y:hidden;

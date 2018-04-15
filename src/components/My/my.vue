@@ -23,13 +23,13 @@
       </div>
     </div>
     <div class="my-list">
-      <div class="sub-list ubox">
+      <router-link to="/subPage/personHomePage" class="sub-list ubox">
         <p class="lft">
           <span class="icon icon1">
           </span><span>个人主页</span>
         </p>
         <p class="rgt-arrow"></p>
-      </div>
+      </router-link>
     </div>
     <div class="my-list">
       <div class="sub-list border-bottom ubox">
@@ -39,13 +39,13 @@
         </p>
         <p class="rgt-arrow"></p>
       </div>
-      <div class="sub-list border-bottom ubox">
+      <router-link to="/subPage/myStore" class="sub-list border-bottom ubox">
         <p class="lft">
           <span class="icon icon3"></span>
           <span>我的收藏</span>
         </p>
         <p class="rgt-arrow"></p>
-      </div>
+      </router-link>
       <div class="sub-list ubox">
         <p class="lft">
           <span class="icon icon4"></span>

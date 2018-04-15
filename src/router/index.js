@@ -14,7 +14,9 @@ import goodsDetail from '@/components/goods/goodsDetail'
 import goodsHome from '@/components/goods/goodsHome'
 import search from '@/components/home/search'
 import helpRule from '@/components/help/rule'
-
+import personHomePage from '@/components/My/homePage'
+import myStore from '@/components/My/myStore'
+import myInterest from '@/components/My/myInterest'
 
 Vue.use(Router)
 
@@ -127,7 +129,33 @@ export default new Router({
             title:'车源',
             keepAlive:true
           }
-        }
+        },
+        {
+          path:'personHomePage',
+          name:'personHomePage',
+          component:personHomePage,
+          meta:{
+            keepAlive:true
+          }
+        },
+        {
+          path:'myStore',
+          name:'myStore',
+          component:myStore,
+          meta:{
+            title:'我的收藏',
+            keepAlive:true
+          }
+        },
+        {
+          path:'myInterest',
+          name:'myInterest',
+          component:myInterest,
+          meta:{
+            title:'我的关注',
+            keepAlive:true
+          }
+        },
       ]
     }
   ]
