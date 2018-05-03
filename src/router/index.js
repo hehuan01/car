@@ -17,6 +17,9 @@ import helpRule from '@/components/help/rule'
 import personHomePage from '@/components/My/homePage'
 import myStore from '@/components/My/myStore'
 import myInterest from '@/components/My/myInterest'
+import myOrder from '@/components/order/myOrder'
+import expressInfo from '@/components/order/expressInfo'
+import orderDetail from '@/components/order/orderDetail'
 
 Vue.use(Router)
 
@@ -153,6 +156,33 @@ export default new Router({
           component:myInterest,
           meta:{
             title:'我的关注',
+            keepAlive:true
+          }
+        },
+        {
+          path:'myOrder',
+          name:'myOrder',
+          component:myOrder,
+          meta:{
+            title:'我的订单',
+            keepAlive:true
+          }
+        },
+        {
+          path:'expressInfo',
+          name:'expressInfo',
+          component:expressInfo,
+          meta:{
+            title:'物流信息',
+            keepAlive:true
+          }
+        },
+        {
+          path:'orderDetail',
+          name:'orderDetail',
+          component:orderDetail,
+          meta:{
+            title:'我的订单',
             keepAlive:true
           }
         },
