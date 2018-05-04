@@ -17,15 +17,12 @@ import helpRule from '@/components/help/rule'
 import personHomePage from '@/components/My/homePage'
 import myStore from '@/components/My/myStore'
 import myInterest from '@/components/My/myInterest'
-<<<<<<< HEAD
 import setUp from '@/components/My/setUp'
 import myInfo from '@/components/My/myInfo'
 import address from '@/components/My/address'
-=======
 import myOrder from '@/components/order/myOrder'
 import expressInfo from '@/components/order/expressInfo'
 import orderDetail from '@/components/order/orderDetail'
->>>>>>> c58956bdc84315822c93e629fc4d22deab61c4cd
 
 Vue.use(Router)
 
@@ -166,41 +163,40 @@ export default new Router({
           }
         },
         {
-<<<<<<< HEAD
           path:'setUp',
           name:'setUp',
           component:setUp,
           meta:{
             title:'设置',
-=======
+          }
+        },
+        {
           path:'myOrder',
           name:'myOrder',
           component:myOrder,
           meta:{
             title:'我的订单',
->>>>>>> c58956bdc84315822c93e629fc4d22deab61c4cd
             keepAlive:true
           }
         },
         {
-<<<<<<< HEAD
           path:'myInfo',
           name:'myInfo',
           component:myInfo,
           meta:{
             title:'个人资料',
-=======
+          }
+        },
+        {
           path:'expressInfo',
           name:'expressInfo',
           component:expressInfo,
           meta:{
             title:'物流信息',
->>>>>>> c58956bdc84315822c93e629fc4d22deab61c4cd
             keepAlive:true
           }
         },
         {
-<<<<<<< HEAD
           path:'address',
           name:'address',
           component:address,
@@ -208,8 +204,8 @@ export default new Router({
             title:'收货地址',
             keepAlive:true
           }
-        }
-=======
+        },
+        {
           path:'orderDetail',
           name:'orderDetail',
           component:orderDetail,
@@ -218,7 +214,6 @@ export default new Router({
             keepAlive:true
           }
         },
->>>>>>> c58956bdc84315822c93e629fc4d22deab61c4cd
       ]
     }
   ]
