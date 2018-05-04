@@ -17,6 +17,9 @@ import helpRule from '@/components/help/rule'
 import personHomePage from '@/components/My/homePage'
 import myStore from '@/components/My/myStore'
 import myInterest from '@/components/My/myInterest'
+import setUp from '@/components/My/setUp'
+import myInfo from '@/components/My/myInfo'
+import address from '@/components/My/address'
 
 Vue.use(Router)
 
@@ -156,6 +159,33 @@ export default new Router({
             keepAlive:true
           }
         },
+        {
+          path:'setUp',
+          name:'setUp',
+          component:setUp,
+          meta:{
+            title:'设置',
+            keepAlive:true
+          }
+        },
+        {
+          path:'myInfo',
+          name:'myInfo',
+          component:myInfo,
+          meta:{
+            title:'个人资料',
+            keepAlive:true
+          }
+        },
+        {
+          path:'address',
+          name:'address',
+          component:address,
+          meta:{
+            title:'收货地址',
+            keepAlive:true
+          }
+        }
       ]
     }
   ]
