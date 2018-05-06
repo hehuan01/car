@@ -23,6 +23,8 @@ import address from '@/components/My/address'
 import myOrder from '@/components/order/myOrder'
 import expressInfo from '@/components/order/expressInfo'
 import orderDetail from '@/components/order/orderDetail'
+import publish from '@/components/publish/publish'
+import login from '@/components/login/login'
 
 Vue.use(Router)
 
@@ -211,6 +213,24 @@ export default new Router({
           component:orderDetail,
           meta:{
             title:'我的订单',
+            keepAlive:true
+          }
+        },
+        {
+          path:'publish',
+          name:'publish',
+          component:publish,
+          meta:{
+            title:'发表内容',
+            keepAlive:true
+          }
+        },
+        {
+          path:'login',
+          name:'login',
+          component:login,
+          meta:{
+            title:'',
             keepAlive:true
           }
         },

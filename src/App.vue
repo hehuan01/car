@@ -22,7 +22,7 @@ export default {
       title:"首页推荐",
       hideArrow:true,
       hideHome:false,
-      showTitle:true,
+      showTitle:false,
       direction:'forward'
     }
   },
@@ -36,7 +36,7 @@ export default {
   watch: {  //watch $route监听路由变化，改变头部title
     '$route' (to, from) {
       //内容详情页不需要title
-      if(to.path == "/subPage/contentDetail" || to.path == "/subPage/search"){
+      if(to.path == "/subPage/contentDetail" || to.path == "/subPage/search" || to.path == "/subPage/login"){
         this.showTitle = false;
       }else{
         this.showTitle = true;
