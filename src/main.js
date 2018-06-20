@@ -7,6 +7,9 @@ import "./assets/js/initRem"
 import "./assets/scss/reset.scss"
 import "./assets/scss/mint-ui-style.scss"
 
+import common from "./assets/js/common"
+Vue.prototype.$common = common;
+
 // ajax请求
 import httpService from './config/httpService'
 // 将$httpService挂载到vue原型上
@@ -21,11 +24,12 @@ Vue.component(SwipeItem.name, SwipeItem);
 
 import {
   Swiper,
-  SwiperItem
+  SwiperItem,
+  ToastPlugin
 } from 'vux';
 Vue.component(Swiper.name, Swiper);
 Vue.component(SwiperItem.name, SwiperItem);
-
+Vue.use(ToastPlugin, {position: 'middle'});
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

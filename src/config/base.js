@@ -7,7 +7,7 @@ export default {
     url: '/',
 
     //请求方法同上
-    method: 'get', //default
+    method: 'post', //default
     //基础url前缀
     baseURL: '',
     transformRequest: [function (data) {

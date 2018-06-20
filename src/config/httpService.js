@@ -6,7 +6,7 @@ export default {
   login: function(params,callback) {
     service.post("/api/goods",params,callback)
   },
-  Ajax: function(params,callback,errorback) {
-    service.post("",params,callback,errorback)
+  userGetMobileAuthCode: function(params,callback,errorback) {
+    service.post("/h5/ycshop/userAuthLoginService/userGetMobileAuthCode",params,callback,errorback)
   }
 }
