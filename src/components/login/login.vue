@@ -38,7 +38,7 @@
         </p>
       </div>
       <div class="sbtn">
-        <button class="btn" :disabled="isDisabled2" @click="nextStep">注册／登录</button>
+        <button class="btn" :disabled="isDisabled2" @click="registerOrlogin">注册／登录</button>
         <p class="protocol">注册表示你已阅读，并同意<a class="link">《用户注册协议》</a></p>
       </div>
     </div>
@@ -156,7 +156,6 @@ export default {
       this.phoneValue = '';
     },
     nextStep(){
-      this.isShow = false;
       this.getSmsCode();
     },
     getCountDown(){
@@ -178,16 +177,34 @@ export default {
     getSmsCode(){
       this.$httpService.userGetMobileAuthCode(
         {
-        	"appId": "100000",
+        	"appId": this.$common.appId,
         	"source": this.source,
-        	"version": "1.0.0",
-        	"mobile": this.phoneValue
+        	"version": this.$common.version,
+        	"mobile": this.phoneValue2
         },(res)=>{
           if(res.result == 0){
             this.$vux.toast.text('短信验证码已发送～');
+            this.isShow = false;
             this.getCountDown();
           }else{
             this.$vux.toast.text('短信发送失败，请稍后重试～');
+          }
+        }
+      )
+    },
+    registerOrlogin(){
+      this.$httpService.userLogin(
+        {
+          "appId": this.$common.appId,
+        	"source": this.source,
+        	"version": this.$common.version,
+        	"mobile": this.phoneValue2,
+        	"authCode": this.input1+this.input2+this.input3+this.input4
+        },(res)=>{
+          if(res.result == 0){
+            this.$router.push({path:'/homePage/home'});
+          }else{
+            this.$vux.toast.text(res.resultMessage);
           }
         }
       )
@@ -217,7 +234,9 @@ export default {
   @import "../../assets/scss/scssCalc";
   .login{
     background: #fff;
-    padding:0 20rem/$num !important;
+    padding-left: 20rem/$num;
+    padding-right: 20rem/$num;
+    // padding:0 20rem/$num !important;
     .logo-close{
       padding:25rem/$num 0;
       .close{

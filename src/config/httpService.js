@@ -8,5 +8,8 @@ export default {
   },
   userGetMobileAuthCode: function(params,callback,errorback) {
     service.post("/h5/ycshop/userAuthLoginService/userGetMobileAuthCode",params,callback,errorback)
+  },
+  userLogin: function(params,callback,errorback){
+    service.post("/h5/ycshop/userAuthLoginService/userLogin",params,callback,errorback)
   }
 }

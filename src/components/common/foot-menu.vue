@@ -9,9 +9,10 @@
         <i class="tab2-icon"></i>
         <p>车库</p>
       </router-link>
-      <router-link to="/order">
+      <a>
+        <input type="file" class="uploadImg" name="uploadImg" ref="img" accept="image/*" multiple="multiple" @change="uploadImg"/>
         <p class="publish"></p>
-      </router-link>
+      </a>
       <router-link to="/order" active-class="active">
         <i class="tab3-icon"></i>
         <p>问题</p>
@@ -23,6 +24,36 @@
     </div>
   </div>
 </template>
+
+<script>
+  export default {
+    data() {
+      return {
+
+      }
+    },
+    methods:{
+      uploadImg(e){
+        let file = e.target.files;
+        // let file1 = e.target.file[1];
+        console.log(e)
+        var reader = new FileReader();
+        //使用该对象读取file文件
+        reader.readAsDataURL(file);
+        //读取文件成功后执行的方法函数
+        reader.onload=function(e){
+          //读取成功后返回的一个参数e，整个的一个进度事件
+          // console.log(e);
+          sessionStorage.img1 = e.target.result;
+          //选择所要显示图片的img，要赋值给img的src就是e中target下result里面
+          //的base64编码格式的地址
+          // $('#imgshow').get(0).src = e.target.result;
+        }
+        // this.$router.push({path:'/subPage/publish'})
+      }
+    }
+  }
+</script>
 
 <style lang="scss">
   @import "../../assets/scss/scssCalc.scss";
@@ -48,6 +79,7 @@
 			align-content: center;
 			// height:100%;
       a{
+        position: relative;
         display: block;
         font-size: 10rem/$num;
         color: #999;
@@ -92,6 +124,7 @@
 					}
 				}
         .publish{
+          position: relative;
           width:44rem/$num;
           height:32rem/$num;
           background: linear-gradient(-135deg, #DDCFA4 0%, #F0E9D1 100%);
@@ -119,6 +152,15 @@
             height:2rem/$num;
             background:#333;
           }
+        }
+        .uploadImg{
+          opacity: 0;
+          position: absolute;
+          left:16rem/$num;
+          top:0;
+          width: 44rem/$num;
+          height: 32rem/$num;
+          z-index: 2
         }
       }
     }

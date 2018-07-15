@@ -22,7 +22,7 @@ export default {
       title:"首页推荐",
       hideArrow:true,
       hideHome:false,
-      showTitle:false,
+      showTitle:true,
       direction:'forward'
     }
   },
