@@ -29,27 +29,26 @@
   export default {
     data() {
       return {
-
+        images:[]
       }
     },
     methods:{
       uploadImg(e){
         let file = e.target.files;
-        // let file1 = e.target.file[1];
-        console.log(e)
-        var reader = new FileReader();
-        //使用该对象读取file文件
-        reader.readAsDataURL(file);
-        //读取文件成功后执行的方法函数
-        reader.onload=function(e){
-          //读取成功后返回的一个参数e，整个的一个进度事件
-          // console.log(e);
-          sessionStorage.img1 = e.target.result;
-          //选择所要显示图片的img，要赋值给img的src就是e中target下result里面
-          //的base64编码格式的地址
-          // $('#imgshow').get(0).src = e.target.result;
+        var self = this;
+        for(var i=0;i<file.length;i++){
+          var reader = new FileReader();
+          //使用该对象读取file文件
+          reader.readAsDataURL(file[i]);
+          //读取文件成功后执行的方法函数
+          reader.onload=function(e){
+            //读取成功后返回的一个参数e，整个的一个进度事件
+            self.images.push(e.target.result)
+            console.log(self.images)
+            sessionStorage.setItem('image', JSON.stringify(self.images))
+          }
         }
-        // this.$router.push({path:'/subPage/publish'})
+        self.$router.push({path:'/subPage/publish'})
       }
     }
   }

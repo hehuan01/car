@@ -3,30 +3,30 @@
     <div class="publish-content sub-content">
       <div class="publish-top">
         <div class="publish-item">
-          <input type="text" placeholder="添加标题" name="title"/>
+          <input type="text" placeholder="添加标题" v-model="title" name="title"/>
         </div>
         <div class="publish-item">
-          <textarea placeholder="说说你的心得吧～" cols="10" />
+          <textarea placeholder="说说你的心得吧～" v-model="tip" cols="10" />
         </div>
         <div class="publish-item">
-          <span class="upload uploaded">
-            <img src="../../assets/images/home/share1.png"/>
+          <span class="upload uploaded" v-for="(item,index) in images" :key="index">
+            <img :src="item"/>
             <input type="file"/>
           </span>
-          <span class="upload">
+          <!-- <span class="upload">
             <input type="file"/>
-          </span>
+          </span> -->
         </div>
       </div>
       <div class="publish-center"></div>
       <div class="publish-other">
-        <div class="publish-item ubox">
+        <router-link to="/subPage/publicSelect" class="publish-item ubox">
           <p class="branch">添加车辆品牌</p>
           <p class="rgt-arrow"></p>
-        </div>
+        </router-link>
       </div>
     </div>
-    <btn :text="text"></btn>
+    <btn :btn="btn" @publishPost="publishPost"></btn>
   </div>
 </template>
 
@@ -35,7 +35,77 @@ import btn from "../common/btn"
 export default {
   data() {
     return {
-      text:'发布'
+      btn:{
+          text:'发布',
+          disabled:true
+        },
+      images:[],
+      title:'',
+      tip:''
+    }
+  },
+  created(){
+    this.init();
+  },
+  watch:{
+    title(){
+      if(!this.title){
+        this.btn.disabled = true;
+        return;
+      }
+      if(this.title && this.tip){
+        this.btn.disabled = false;
+      }
+    },
+    tip(){
+      if(!this.tip){
+        this.btn.disabled = true;
+        return;
+      }
+      if(this.title && this.tip){
+        this.btn.disabled = false;
+      }
+    }
+  },
+  methods:{
+    init(){
+      //获取上传图片
+      this.images = JSON.parse(sessionStorage.getItem('image'))
+    },
+    publishPost(text){
+      if(text == '发布'){
+        this.$httpService.publishPost(
+          {
+            "appId":this.$common.appId,
+            "source":this.source,
+            "version":this.$common.version,
+            "productId":1,
+            "title":this.title,
+            "content":this.tip,
+            "imgCount":this.images.length
+          },(res)=>{
+            if(res.result == 0){
+              this.uplodFile(res.content.sign)
+            }
+          }
+        )
+      }
+    },
+    uplodFile(id){
+      this.$httpService.uplodFile(
+        {
+          "appId":this.$common.appId,
+          "source":this.source,
+          "version":this.$common.version,
+          "id":id,
+          "imgType":2,
+          "orderId":1
+        },(res)=>{
+          if(res.result == 0){
+            this.$router.push({path:'/homePage/home'});
+          }
+        }
+      )
     }
   },
   components: {
@@ -108,7 +178,7 @@ export default {
             left: 0;
             top:0;
             opacity: 0;
-            z-index: 2;
+            z-index: 4;
           }
           img{
             width:100%;

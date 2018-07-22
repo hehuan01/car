@@ -26,6 +26,8 @@ import orderDetail from '@/components/order/orderDetail'
 import publish from '@/components/publish/publish'
 import login from '@/components/login/login'
 
+import publicSelect from '@/components/common/public-select'
+
 Vue.use(Router)
 
 export default new Router({
@@ -229,6 +231,15 @@ export default new Router({
           path:'login',
           name:'login',
           component:login,
+          meta:{
+            title:'',
+            keepAlive:true
+          }
+        },
+        {
+          path:'publicSelect',
+          name:'publicSelect',
+          component:publicSelect,
           meta:{
             title:'',
             keepAlive:true
