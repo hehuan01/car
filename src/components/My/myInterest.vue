@@ -3,12 +3,12 @@
     <tab></tab>
     <div class="user">
       <ul>
-        <li class="ubox">
+        <li class="ubox" v-for="(item,index) in userList" :key="index">
           <div class="lft">
-            <p><img src="../../assets/images/my/pro-logo.png"/></p>
-            <p><span class="user-name">孙悟空</span><br/><span class="user-number">20个粉丝</span></p>
+            <p><img :src="item.profileImgUrl"/></p>
+            <p><span class="user-name">{{item.userName}}</span><br/><span class="user-number">{{item.followerCount}}个粉丝</span></p>
           </div>
-          <div class="interest-btn-status interest-btn-active">已关注</div>
+          <div class="interest-btn-status" :class="{'interest-btn-active':!item.isMeConcerned}">{{item.isMeConcerned?'已关注':'关注'}}</div>
         </li>
       </ul>
     </div>
@@ -17,10 +17,30 @@
 
 <script>
   import tab from '../common/tab'
+  import $common from '../../assets/js/common'
   export default {
     data() {
       return {
-
+        userList:[]
+      }
+    },
+    created(){
+      this.concernedUserList()
+    },
+    methods:{
+      concernedUserList(){  //关注列表 动态
+        this.$httpService.concernedUserList(
+          {
+            "appId":$common.appId,
+          	"source":$common.source,
+          	"version":$common.version,
+          	"otherUserName":"用户名"
+          },(res)=>{
+            if(res.result == 0){
+              this.userList = res.content.userList
+            }
+          }
+        )
       }
     },
     components: {

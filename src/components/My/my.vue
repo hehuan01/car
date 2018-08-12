@@ -2,22 +2,22 @@
   <div class="my sub-content">
     <div class="top">
       <div class="my-info">
-        <img src="../../assets/images/my/head.png"/>
-        <p>大脸猫</p>
+        <img :src="personalInfo.profileImgUrl"/>
+        <p>{{personalInfo.userName}}</p>
       </div>
       <div class="my-do">
         <div class="do-item">
-          <p class="do-num">188</p>
+          <p class="do-num">{{personalInfo.followerCount}}</p>
           <p class="do-name">粉丝</p>
         </div>
         <div class="line"></div>
         <div class="do-item">
-          <p class="do-num">16</p>
+          <p class="do-num">{{personalInfo.payPointCount}}</p>
           <p class="do-name">关注</p>
         </div>
         <div class="line"></div>
         <div class="do-item">
-          <p class="do-num">2990</p>
+          <p class="do-num">{{personalInfo.raiseOrCollectCount}}</p>
           <p class="do-name">获赞与收藏</p>
         </div>
       </div>
@@ -72,6 +72,35 @@
     </div>
   </div>
 </template>
+
+<script>
+  export default {
+    data() {
+      return {
+        personalInfo:''
+      }
+    },
+    created() {
+      this.personalInfo()
+    },
+    methods:{
+      personalInfo() {//个人中心
+        this.$httpService.personalInfo(
+          {
+            "appId":this.$common.appId,
+          	"source":this.$common.source,
+          	"version":this.$common.version,
+          	"followUserName":"用户名",
+          },(res)=>{
+            if(res.result == 0){
+              this.personalInfo = res.content
+            }
+          }
+        )
+      }
+    }
+  }
+</script>
 
 <style lang="scss">
   @import "../../assets/scss/scssCalc";

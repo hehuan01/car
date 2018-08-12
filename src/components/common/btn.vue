@@ -1,6 +1,6 @@
 <template>
   <div class="foot-btn">
-    <button :disabled="btn.disabled" :style="btn.disabled?'color:#666':''" @click="publishPost(btn.text)">{{btn.text}}</button>
+    <button :disabled="btn.disabled" :style="btn.disabled?'color:#666':''" @click="btnClick()">{{btn.text}}</button>
   </div>
 </template>
 
@@ -8,8 +8,8 @@
   export default {
     props: ['btn'],
     methods:{
-      publishPost(text){
-        this.$emit('publishPost',text)
+      btnClick(){
+        this.$emit('btnClick')
       }
     }
   }

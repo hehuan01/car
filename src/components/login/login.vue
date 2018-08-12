@@ -178,7 +178,7 @@ export default {
       this.$httpService.userGetMobileAuthCode(
         {
         	"appId": this.$common.appId,
-        	"source": this.source,
+        	"source": this.$common.source,
         	"version": this.$common.version,
         	"mobile": this.phoneValue2
         },(res)=>{
@@ -196,7 +196,7 @@ export default {
       this.$httpService.userLogin(
         {
           "appId": this.$common.appId,
-        	"source": this.source,
+        	"source": this.$common.source,
         	"version": this.$common.version,
         	"mobile": this.phoneValue2,
         	"authCode": this.input1+this.input2+this.input3+this.input4

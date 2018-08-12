@@ -2,27 +2,27 @@
   <div class="my-info">
     <div class="top">
       <div class="my-info">
-        <img src="../../assets/images/my/head.png"/>
-        <p>大脸猫</p>
+        <img :src="personalInfo.profileImgUrl"/>
+        <p>{{personalInfo.userName}}</p>
       </div>
       <div class="my-do">
         <div class="do-item">
-          <p class="do-num">188</p>
+          <p class="do-num">{{personalInfo.followerCount}}</p>
           <p class="do-name">粉丝</p>
         </div>
         <div class="line"></div>
         <div class="do-item">
-          <p class="do-num">16</p>
+          <p class="do-num">{{personalInfo.payPointCount}}</p>
           <p class="do-name">关注</p>
         </div>
         <div class="line"></div>
         <div class="do-item">
-          <p class="do-num">2990</p>
+          <p class="do-num">{{personalInfo.raiseOrCollectCount}}</p>
           <p class="do-name">获赞与收藏</p>
         </div>
       </div>
-      <div class="follow">
-        <span class="followed">关注</span>
+      <div class="follow" v-if="!personalInfo.isMe">
+        <button :class="{'followed':personalInfo.IsPayPoint}" :disabled="personalInfo.IsPayPoint" @click="payAttentionToUser">{{personalInfo.IsPayPoint?"已关注":"关注"}}</button>
       </div>
     </div>
     <div class="my-introduce">
@@ -32,6 +32,53 @@
     </div>
   </div>
 </template>
+
+<script>
+  export default {
+    props:["personalInfo"],
+    data() {
+      return {
+        // personalInfo:'',
+        // userName:''
+      }
+    },
+    created() {
+      // this.personalInfo()
+    },
+    methods:{
+      // personalInfo() {//个人中心
+      //   this.$httpService.personalInfo(
+      //     {
+      //       "appId":this.$common.appId,
+      //     	"source":this.$common.source,
+      //     	"version":this.$common.version,
+      //     	"followUserName":"用户名",
+      //     },(res)=>{
+      //       if(res.result == 0){
+      //         this.personalInfo = res.content
+      //         this.userName = res.content.userName
+      //       }
+      //     }
+      //   )
+      // },
+      payAttentionToUser() {  //关注他人
+        $.emit("payAttentionToUser")
+        // this.$httpService.payAttentionToUser(
+        //   {
+        //     "appId":this.$common.appId,
+        //   	"source":this.$common.source,
+        //   	"version":this.$common.version,
+        //   	"payToUserName":this.personalInfo.userName,
+        //   },(res)=>{
+        //     if(res.result == 0){
+        //       this.personalInfo.IsPayPoint = true
+        //     }
+        //   }
+        // )
+      }
+    }
+  }
+</script>
 
 <style lang="scss">
   @import "../../assets/scss/scssCalc";
@@ -93,8 +140,11 @@
     }
     .follow{
       padding-bottom: 23rem/$num;
-      span{
-        display: block;
+      text-align: center;
+      button{
+        border:none;
+        outline: none;
+        padding: 0;
         width:92rem/$num;
         height: 28rem/$num;
         line-height: 28rem/$num;

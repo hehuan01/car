@@ -48,7 +48,9 @@
             sessionStorage.setItem('image', JSON.stringify(self.images))
           }
         }
-        self.$router.push({path:'/subPage/publish'})
+        setTimeout(()=>{
+          self.$router.push({path:'/subPage/publish'})
+        },1000)
       }
     }
   }

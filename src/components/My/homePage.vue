@@ -1,13 +1,13 @@
 <template>
   <div>
     <div class="sub-content">
-      <my-info></my-info>
-      <div class="publish-content">
-        <p class="date">2月21日</p>
-        <list></list>
+      <my-info :personalInfo="personalInfo" @payAttentionToUser="payAttentionToUser"></my-info>
+      <div class="publish-content" v-for="(item,index) in postList" :key="index">
+        <p class="date">{{item.postTime}}</p>
+        <list :subPostList="subPostList"></list>
       </div>
     </div>
-    <btn :text="text"></btn>
+    <btn v-if="personalInfo.isMe" :btn="btn" @btnClick="btnClick"></btn>
   </div>
 </template>
 
@@ -18,7 +18,66 @@
   export default {
     data() {
       return {
-        text:'发布动态'
+        btn:{
+          text:'发布动态',
+          disabled:false
+        },
+        postList:'',
+        personalInfo:''
+      }
+    },
+    created() {
+      this.postList()
+      this.personalInfo()
+    },
+    methods:{
+      postList() { //获取用户帖子列表
+        this.$httpService.postList(
+          {
+            "appId":this.$common.appId,
+          	"source":this.$common.source,
+          	"version":this.$common.version,
+          	"followUserName":"大脸猫",
+          	"pageIndex":1,
+          	"pageSize":10
+          },(res)=>{
+            if(res.result == 0){
+              this.postList = res.content.postList
+            }
+          }
+        )
+      },
+      personalInfo() {//个人中心
+        this.$httpService.personalInfo(
+          {
+            "appId":this.$common.appId,
+          	"source":this.$common.source,
+          	"version":this.$common.version,
+          	"followUserName":"用户名",
+          },(res)=>{
+            if(res.result == 0){
+              this.personalInfo = res.content
+              // this.userName = res.content.userName
+            }
+          }
+        )
+      },
+      btnClick() {  //发布动态按钮
+        this.$router.push({path:'/subPage/publish'})
+      },
+      payAttentionToUser() {  //关注他人
+        this.$httpService.payAttentionToUser(
+          {
+            "appId":this.$common.appId,
+          	"source":this.$common.source,
+          	"version":this.$common.version,
+          	"payToUserName":this.personalInfo.userName,
+          },(res)=>{
+            if(res.result == 0){
+              this.personalInfo.IsPayPoint = true
+            }
+          }
+        )
       }
     },
     components:{

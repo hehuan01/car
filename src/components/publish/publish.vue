@@ -9,13 +9,14 @@
           <textarea placeholder="说说你的心得吧～" v-model="tip" cols="10" />
         </div>
         <div class="publish-item">
-          <span class="upload uploaded" v-for="(item,index) in images" :key="index">
+          <span class="upload uploaded" v-if="images.length > 0" v-for="(item,index) in images" :key="index">
             <img :src="item"/>
             <input type="file"/>
           </span>
-          <!-- <span class="upload">
-            <input type="file"/>
-          </span> -->
+          <span class="upload">
+            <img src="" style="opacity:0"/>
+            <input type="file" name="uploadImg" accept="image/*" @change="uploadImg"/>
+          </span>
         </div>
       </div>
       <div class="publish-center"></div>
@@ -26,7 +27,7 @@
         </router-link>
       </div>
     </div>
-    <btn :btn="btn" @publishPost="publishPost"></btn>
+    <btn :btn="btn" @btnClick="btnClick"></btn>
   </div>
 </template>
 
@@ -36,9 +37,9 @@ export default {
   data() {
     return {
       btn:{
-          text:'发布',
-          disabled:true
-        },
+        text:'发布',
+        disabled:true
+      },
       images:[],
       title:'',
       tip:''
@@ -71,13 +72,15 @@ export default {
     init(){
       //获取上传图片
       this.images = JSON.parse(sessionStorage.getItem('image'))
+      sessionStorage.removeItem('image')
+      this.images = []
     },
-    publishPost(text){
-      if(text == '发布'){
+    btnClick(text){
+      // if(text == '发布'){
         this.$httpService.publishPost(
           {
             "appId":this.$common.appId,
-            "source":this.source,
+            "source":this.$common.source,
             "version":this.$common.version,
             "productId":1,
             "title":this.title,
@@ -89,23 +92,33 @@ export default {
             }
           }
         )
-      }
+      // }
     },
     uplodFile(id){
       this.$httpService.uplodFile(
         {
           "appId":this.$common.appId,
-          "source":this.source,
+          "source":this.$common.source,
           "version":this.$common.version,
           "id":id,
           "imgType":2,
           "orderId":1
         },(res)=>{
           if(res.result == 0){
-            this.$router.push({path:'/homePage/home'});
+            this.$router.push({path:'/homePage/home'})
           }
         }
       )
+    },
+    uploadImg(e){
+      let file = e.target.files;
+      var self = this;
+      var reader = new FileReader();
+      reader.readAsDataURL(file[0]);
+      reader.onload = function(e){
+        self.images.push(e.target.result)
+        console.log(self.images)
+      }
     }
   },
   components: {

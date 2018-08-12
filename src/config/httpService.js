@@ -22,4 +22,24 @@ export default {
   uplodFile: function(params,callback,errorback){
     service.post("/h5/ycshop/fileService/uplodFile",params,callback,errorback)
   },
+  //获取帖子列表
+  postList: function(params,callback,errorback){
+    service.post("/h5/ycshop/postInfoService/postList",params,callback,errorback)
+  },
+  //个人中心
+  personalInfo: function(params,callback,errorback){
+    service.post("/h5/ycshop/personalInfoService/personalInfo",params,callback,errorback)
+  },
+  //关注他人
+  payAttentionToUser: function(params,callback,errorback){
+    service.post("/h5/ycshop/personalInfoService/payAttentionToUser",params,callback,errorback)
+  },
+  //修改个人信息
+  editPersonInfo: function(params,callback,errorback){
+    service.post("/h5/ycshop/personalInfoService/editPersonInfo",params,callback,errorback)
+  },
+  //关注列表 动态
+  concernedUserList: function(params,callback,errorback){
+    service.post("/h5/ycshop/concernedService/concernedUserList",params,callback,errorback)
+  }
 }

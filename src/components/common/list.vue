@@ -3,23 +3,20 @@
     <div class="content">
       <router-link :to="{name:'',params:{}}">
         <div class="sub-list">
-          <div class="grap-text">
-            <img src="../../assets/images/home/share1.png"/>
-          </div>
-          <div class="grap-text">
-            <img src="../../assets/images/home/share2.png"/>
+          <div class="grap-text" v-for="(item,index) in subPostList.postImgList" :key="index">
+            <img :src="item.imgUrl"/>
           </div>
         </div>
-        <p>黄色魅影 PCauto试驾法拉利California</p>
+        <p>{{subPostList.carProductName}} {{subPostList.title}}</p>
       </router-link>
       <div class="userinfo">
         <div class="head">
-          <i><img src="../../assets/images/home/head1.png" /></i>
-          <span class="username">大脸猫</span>
+          <i><img :src="subPostList.profileImgUlr" /></i>
+          <span class="username">{{subPostList.userName}}</span>
         </div>
         <div class="like">
           <i class="default-icon"></i>
-          <span class="number">678</span>
+          <span class="number">{{subPostList.pointCount}}</span>
         </div>
       </div>
     </div>
@@ -27,7 +24,9 @@
 </template>
 
 <script>
-
+  export default {
+    props:['subPostList']
+  }
 </script>
 
 <style lang="scss">

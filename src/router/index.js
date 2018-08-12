@@ -35,12 +35,12 @@ export default new Router({
   // linkActiveClass: 'active', // 这是链接激活时的class
   routes: [
     {
-      path: '/',
+      path: '/homePage',
       name: 'homePage',
       component: homePage,
       children:[
         {
-          path:'',
+          path:'/',
           name:'home',
           component:home,
           meta:{
