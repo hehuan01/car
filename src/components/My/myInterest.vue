@@ -1,7 +1,7 @@
 <template>
   <div class="my-interest sub-content">
-    <tab></tab>
-    <div class="user">
+    <tab :tab="tab" @showList="showList"></tab>
+    <!-- <div class="user">
       <ul>
         <li class="ubox" v-for="(item,index) in userList" :key="index">
           <div class="lft">
@@ -11,21 +11,35 @@
           <div class="interest-btn-status" :class="{'interest-btn-active':!item.isMeConcerned}">{{item.isMeConcerned?'已关注':'关注'}}</div>
         </li>
       </ul>
-    </div>
+    </div> -->
+    <concerned-list :list="item.list" v-for="(item,index) in tab" v-if="showListIndex==index?true:false"></concerned-list>
+    <!-- <concerned-list :userList="userList"></concerned-list> -->
   </div>
 </template>
 
 <script>
   import tab from '../common/tab'
   import $common from '../../assets/js/common'
+  import concernedList from '../common/concernedList'
   export default {
     data() {
       return {
-        userList:[]
+        tab:[
+          {
+            tabName:"用户",
+            list:[]
+          },
+          {
+            tabName:"品牌",
+            list:[]
+          }
+        ],
+        showListIndex:0
       }
     },
     created(){
       this.concernedUserList()
+      this.concernedCarBrandInfoList()
     },
     methods:{
       concernedUserList(){  //关注列表 动态
@@ -37,14 +51,32 @@
           	"otherUserName":"用户名"
           },(res)=>{
             if(res.result == 0){
-              this.userList = res.content.userList
+              this.tab[0].list = res.content.userList
             }
           }
         )
+      },
+      concernedCarBrandInfoList(){  //品牌关注
+        this.$httpService.concernedCarBrandInfoList(
+          {
+            "appId":$common.appId,
+            "source":$common.source,
+            "version":$common.version,
+            "otherUserName":"用户名"
+          },(res)=>{
+            if(res.result == 0){
+              this.tab[1].list = res.content.brandList
+            }
+          }
+        )
+      },
+      showList(index){
+        this.showListIndex = index
       }
     },
     components: {
-      tab
+      tab,
+      concernedList
     }
   }
 </script>

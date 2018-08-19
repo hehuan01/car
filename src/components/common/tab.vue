@@ -1,13 +1,27 @@
 <template>
   <div class="common-tab">
     <div class="tabs ubox">
-      <div class="sub-tab active"><span>动态</span></div>
-      <div class="sub-tab">商品</div>
+      <div :class="['sub-tab',activeIndex==index?'active':'']" v-for="(item,index) in tab" :key="index" @click="showTab(index)"><span>{{item.tabName}}</span></div>
     </div>
   </div>
 </template>
 
-<script></script>
+<script>
+  export default {
+    props:["tab"],
+    data() {
+      return {
+        activeIndex:0
+      }
+    },
+    methods:{
+      showTab(index){
+        this.activeIndex = index
+        this.$emit('showList',index)
+      }
+    }
+  }
+</script>
 
 <style lang="scss">
   @import "../../assets/scss/scssCalc";

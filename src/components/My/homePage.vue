@@ -4,7 +4,7 @@
       <my-info :personalInfo="personalInfo" @payAttentionToUser="payAttentionToUser"></my-info>
       <div class="publish-content" v-for="(item,index) in postList" :key="index">
         <p class="date">{{item.postTime}}</p>
-        <list :subPostList="subPostList"></list>
+        <list :subPostList="item"></list>
       </div>
     </div>
     <btn v-if="personalInfo.isMe" :btn="btn" @btnClick="btnClick"></btn>

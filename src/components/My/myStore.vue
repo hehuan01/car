@@ -1,24 +1,58 @@
 <template>
   <div class="my-store sub-content">
-    <div class="tabs ubox">
-      <div class="sub-tab active"><span>动态</span></div>
-      <div class="sub-tab">商品</div>
-    </div>
-    <div class="dynamic">
-      <list></list>
+    <tab :tab="tab" @showList="showList"></tab>
+    <div class="dynamic" v-for="(item,index) in tab" :key="index" v-if="showListIndex==index?true:false">
+      <list :subPostList="listItem" v-for="(listItem,listIndex) in item.list" :key="listIndex"></list>
     </div>
   </div>
 </template>
 
 <script>
+  import tab from '../common/tab'
+  import $common from '../../assets/js/common'
   import list from "../common/list"
   export default {
     data() {
       return {
-
+        tab:[
+          {
+            tabName:"动态",
+            list:[]
+          },
+          {
+            tabName:"商品",
+            list:[]
+          }
+        ],
+        showListIndex:0
+      }
+    },
+    created(){
+      this.concernedPostList()
+    },
+    methods:{
+      showList(index){
+        this.showListIndex = index
+      },
+      concernedPostList(){
+        this.$httpService.concernedPostList(
+          {
+            "appId":$common.appId,
+          	"source":$common.source,
+          	"version":$common.version,
+          	"otherUserName": "用户名",
+          	"pageIndex": 1,
+          	"pageSize": 10
+          },(res)=>{
+            if(res.result == 0){
+              this.tab[0].list = data.content.postList
+            }
+          }
+        )
       }
     },
     components: {
+      tab,
       list
     }
   }

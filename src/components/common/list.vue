@@ -14,7 +14,7 @@
           <i><img :src="subPostList.profileImgUlr" /></i>
           <span class="username">{{subPostList.userName}}</span>
         </div>
-        <div class="like">
+        <div class="like" @click="raisePost(subPostList.id)">
           <i class="default-icon"></i>
           <span class="number">{{subPostList.pointCount}}</span>
         </div>
@@ -24,8 +24,25 @@
 </template>
 
 <script>
+  import $common from '../../assets/js/common'
   export default {
-    props:['subPostList']
+    props:['subPostList'],
+    methods:{
+      raisePost(postid){
+        this.$httpService.raisePost(
+          {
+            "appId":$common.appId,
+          	"source":$common.source,
+          	"version":$common.version,
+          	"postId":postid
+          },(res)=>{
+            if(res.result == 0){
+              this.subPostList.pointCount = data.content.raiseCount
+            }
+          }
+        )
+      }
+    }
   }
 </script>
 

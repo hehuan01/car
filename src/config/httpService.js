@@ -41,5 +41,21 @@ export default {
   //关注列表 动态
   concernedUserList: function(params,callback,errorback){
     service.post("/h5/ycshop/concernedService/concernedUserList",params,callback,errorback)
-  }
+  },
+  //品牌关注
+  concernedCarBrandInfoList: function(params,callback,errorback){
+    service.post("/h5/ycshop/concernedService/concernedCarBrandInfoList",params,callback,errorback)
+  },
+  //收藏帖子
+  concernedPostList(params,callback,errorback){
+    service.post("/h5/ycshop/concernedService/concernedPostList",params,callback,errorback)
+  },
+  //点赞帖子
+  raisePost(params,callback,errorback){
+    service.post("/h5/ycshop/postInfoService/raisePost",params,callback,errorback)
+  },
+  //收藏帖子 评论详情
+  storePost(params,callback,errorback){
+    service.post("/h5/ycshop/postInfoService/storePost",params,callback,errorback)
+  },
 }
