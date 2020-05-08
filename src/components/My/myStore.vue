@@ -9,7 +9,7 @@
 
 <script>
   import tab from '../common/tab'
-  import $common from '../../assets/js/common'
+  // import $common from '../../assets/js/common'
   import list from "../common/list"
   export default {
     data() {
@@ -28,6 +28,7 @@
       }
     },
     created(){
+      // console.log(this.common)
       this.concernedPostList()
     },
     methods:{
@@ -37,9 +38,9 @@
       concernedPostList(){
         this.$httpService.concernedPostList(
           {
-            "appId":$common.appId,
-          	"source":$common.source,
-          	"version":$common.version,
+            "appId":this.common.appId,
+          	"source":this.common.source,
+          	"version":this.common.version,
           	"otherUserName": "用户名",
           	"pageIndex": 1,
           	"pageSize": 10
